@@ -4,6 +4,7 @@ const stop = document.getElementById("stop");
 const progress = document.getElementById("progress");
 const timestamp = document.getElementById("timestamp");
 const volume = document.getElementById("volume");
+const volumeIcon = document.getElementById("volumeIcon");
 
 // Play & Pause video
 function toggleVideoStatus() {
@@ -56,6 +57,13 @@ function stopVideo() {
 // Set Volume
 function setVolume() {
   video.volume = this.value;
+  if (video.volume === 0.5) {
+    volumeIcon.innerHTML = `<i class="fas fa-volume-down fa-2x"></i>`;
+  } else if (video.volume === 0) {
+    volumeIcon.innerHTML = `<i class="fas fa-volume-mute fa-2x"></i>`;
+  } else {
+    volumeIcon.innerHTML = `<i class="fas fa-volume-up fa-2x"></i>`;
+  }
 }
 
 // Eventlisteners
